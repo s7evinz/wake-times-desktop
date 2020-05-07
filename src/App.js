@@ -66,12 +66,12 @@ class App extends Component {
         timeList: timeList
       });
 
-      const audio = new Audio('sound/pin-drop.mp3');
-      audio.play();
-      // const synth = window.speechSynthesis;
-      // const utter = new SpeechSynthesisUtterance();
-      // utter.text = 'Time recorded.';
-      // synth.speak(utter);
+      // const audio = new Audio('sound/pin-drop.mp3');
+      // audio.play();
+      const synth = window.speechSynthesis;
+      const utter = new SpeechSynthesisUtterance();
+      utter.text = 'Time added.';
+      synth.speak(utter);
     }
   }
 
@@ -134,7 +134,9 @@ class TapArea extends Component {
     return (
       <div className="app-content">
         {/* <div onClick={this.props.addTime} className="app-tap-area"> */}
-        <div onMouseUp={this.handleDoubleClick} className="app-tap-area">
+        <div onMouseUp={this.handleDoubleClick} 
+             onContextMenu={this.handleDoubleClick}
+             className="app-tap-area">
           <Clock />
           <TimeList timeList={this.props.timeList} />
         </div>
